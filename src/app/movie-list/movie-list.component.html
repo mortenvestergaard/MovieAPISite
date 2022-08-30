@@ -1,0 +1,38 @@
+<p>movie-list works!</p>
+<div class="button-div">
+  <button (click)="GetMoviesFromService()">
+    <span class="text">Search movies</span>
+  </button>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Poster</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Genres</th>
+      <th>Release date</th>
+      <th>Runtime</th>
+    </tr>
+    <tr *ngFor="let movie of movies">
+      <td>{{movie.id}}</td>
+      <td>{{movie.poster}}</td>
+      <td>{{movie.name}}</td>
+      <td>{{movie.description}}</td>
+      <td>{{movie.genres}}</td>
+      <td>{{movie.releaseDate}}</td>
+      <td>{{movie.runtime}}</td>
+    </tr>
+  </table>
+<mat-card>
+  <mat-card-title-group>
+    <mat-card-title></mat-card-title>
+    <img mat-card-md-image src="https://www.imdb.com/title/tt0499549/mediaviewer/rm2864126209/?ref_=tt_ov_i">
+  </mat-card-title-group>
+  <div *ngFor="let movie of movies">
+    <mat-card-content >{{movie.id}}</mat-card-content>
+    <mat-card-content></mat-card-content>
+  </div>
+</mat-card>
+</div>
