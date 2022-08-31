@@ -1,4 +1,3 @@
-<p>movie-list works!</p>
 <div class="button-div">
   <button (click)="GetMoviesFromService()">
     <span class="text">Search movies</span>
@@ -28,7 +27,7 @@
 <mat-card>
   <mat-card-title-group>
     <mat-card-title></mat-card-title>
-    <img mat-card-md-image src="https://www.imdb.com/title/tt0499549/mediaviewer/rm2864126209/?ref_=tt_ov_i">
+    <!-- <img mat-card-md-image src="https://www.imdb.com/title/tt0499549/mediaviewer/rm2864126209/?ref_=tt_ov_i"> -->
   </mat-card-title-group>
   <div *ngFor="let movie of movies">
     <mat-card-content >{{movie.id}}</mat-card-content>
