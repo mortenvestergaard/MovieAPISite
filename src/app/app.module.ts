@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { InsertMovieComponent } from './insert-movie/insert-movie.component';
+import { GenreComponent } from './models/genre/genre.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { InsertMovieComponent } from './insert-movie/insert-movie.component';
     AppComponent,
     MovieListComponent,
     NavbarComponent,
-    InsertMovieComponent
+    InsertMovieComponent,
+    GenreComponent
   ],
   imports: [
     BrowserModule,
