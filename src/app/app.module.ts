@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { InsertMovieComponent } from './insert-movie/insert-movie.component';
-import { GenreComponent } from './models/genre/genre.component';
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field'
 
 
 @NgModule({
@@ -19,7 +20,6 @@ import { GenreComponent } from './models/genre/genre.component';
     MovieListComponent,
     NavbarComponent,
     InsertMovieComponent,
-    GenreComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +28,8 @@ import { GenreComponent } from './models/genre/genre.component';
     MatToolbarModule,
     HttpClientModule,
     MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

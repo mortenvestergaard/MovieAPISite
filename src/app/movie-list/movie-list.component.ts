@@ -22,7 +22,10 @@ export class MovieListComponent implements OnInit {
   GetMoviesFromService() {
     this.movieService.GetMovies().subscribe((x) => {
       this.movies = x
+      console.log("List of movies:")
       console.log(this.movies)
     })
   }
+
+
 }

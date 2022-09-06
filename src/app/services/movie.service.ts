@@ -15,4 +15,16 @@ export class MovieService {
   GetMovies(): Observable<any>{
     return this.http.get(this.url + '/GetMovies');
   }
+
+  InsertMovie(movie: Movie): Observable<any>{
+    const body = {
+      Poster: movie.poster,
+      Name: movie.name,
+      Description: movie.description,
+      Genre: movie.genres,
+      ReleaseDate: movie.releaseDate,
+      Runtime: movie.runtime
+    }
+    return this.http.post(this.url, movie);
+  }
 }
