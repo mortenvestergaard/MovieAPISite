@@ -13,13 +13,13 @@
 <br>
       <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
-        <input matInput required [(ngModel)]="newMovie.description">
+        <textarea matInput required [(ngModel)]="newMovie.description"></textarea>
       </mat-form-field>
 <br>
     <mat-form-field appearance="outline">
       <mat-label>Toppings</mat-label>
       <mat-select [(ngModel)]="newMovie.genres" multiple>
-        <mat-option *ngFor="let genre of movieGenres" [value]="genre" >{{genre}}</mat-option>
+        <mat-option *ngFor="let genre of movieGenres" [value]="genre" >{{genre.viewValue}}</mat-option>
       </mat-select>
     </mat-form-field>
 <br>
