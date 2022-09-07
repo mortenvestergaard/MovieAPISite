@@ -1,18 +1,33 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { MatToolbarModule} from '@angular/material/toolbar';
-
 import { AppRoutingModule } from './app-routing.module';
+
+//Classes
+import { Genre } from './models/genre';
+import { Movie } from './models/movie';
+
+//Services
+import { MovieService } from './services/movie.service';
+
+//Components
 import { AppComponent } from './app.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InsertMovieComponent } from './insert-movie/insert-movie.component';
+
+//Angular Material
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
-import { InsertMovieComponent } from './insert-movie/insert-movie.component';
-import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field'
-
+import { MatInputModule} from '@angular/material/input'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import {MatSelectModule} from '@angular/material/select'
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -30,8 +45,19 @@ import {MatFormFieldModule} from '@angular/material/form-field'
     MatCardModule,
     FormsModule,
     MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule,
   ],
-  providers: [HttpClientModule],
+  providers: [
+    HttpClientModule,
+    MovieService,
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
