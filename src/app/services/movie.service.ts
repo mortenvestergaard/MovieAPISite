@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Movie } from '../models/movie';
@@ -19,12 +19,11 @@ export class MovieService {
   InsertMovie(movie: Movie): Observable<any>{
     const newMovie = {
       Poster: movie.poster,
-      Name: movie.name,
+      title: movie.title,
       Description: movie.description,
-      Genre: movie.genres,
+      Genres: movie.genres,
       ReleaseDate: movie.releaseDate,
       Runtime: movie.runtime
     }
-    return this.http.post(this.url + '/InsertMovie', newMovie
-  )}
+    return this.http.post(this.url + '/InsertMovie', newMovie)}
 }

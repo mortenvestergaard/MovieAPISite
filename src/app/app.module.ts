@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 //Classes
-import { Genre } from './models/genre';
+import { MovieGenre } from './models/genre';
 import { Movie } from './models/movie';
 
 //Services
@@ -28,6 +28,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import {MatSelectModule} from '@angular/material/select'
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatSelectModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
   ],
   providers: [
     HttpClientModule,

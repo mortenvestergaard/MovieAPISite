@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../models/movie';
 import { MatCardModule } from '@angular/material/card';
@@ -16,14 +16,18 @@ export class MovieListComponent implements OnInit {
 
   movies: any;
 
+  spinnerLoading = new BehaviorSubject<boolean>(false);
+
   ngOnInit(): void {
   }
 
   GetMoviesFromService() {
+    this.spinnerLoading.next(true);
     this.movieService.GetMovies().subscribe((x) => {
       this.movies = x
       console.log("List of movies:")
       console.log(this.movies)
+      this.spinnerLoading.next(false);
     })
   }
 

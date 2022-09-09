@@ -1,11 +1,11 @@
-import { Genre } from "./genre";
+import { MovieGenre } from "./genre";
 
 export class Movie {
   id: number | undefined;
   poster: string | undefined;
-  name: string | undefined;
+  title: string | undefined;
   description: string | undefined;
-  genres: Array<Genre> | undefined
+  genres: String[] | undefined;
   releaseDate: string | undefined;
   runtime: string | undefined;
 }

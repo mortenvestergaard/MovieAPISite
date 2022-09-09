@@ -1,4 +1,4 @@
-export class Genre {
-  genreId: number | undefined;
-  viewValue: string | undefined;
+export class MovieGenre {
+  Id: number | undefined;
+  GenreName: string | undefined;
 }

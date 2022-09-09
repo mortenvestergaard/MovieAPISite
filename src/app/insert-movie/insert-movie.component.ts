@@ -7,10 +7,10 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { FloatLabelType } from '@angular/material/form-field';
 import { MatButton } from '@angular/material/button';
 import { MatSelect } from '@angular/material/select';
-import { Genre } from '../models/genre';
+import { MovieGenre } from '../models/genre';
 
 interface GenreValue {
-  value: string;
+  GenreName: string;
 }
 
 @Component({
@@ -25,27 +25,27 @@ export class InsertMovieComponent implements OnInit {
 
   newMovie: Movie = new Movie();
   genres = new FormControl('');
-  movieGenres: Genre[] = [
-    {genreId: 1, viewValue: "Action"},
-    {genreId: 2, viewValue: "Comedy"},
-    {genreId: 3, viewValue: "Drama"},
-    {genreId: 4, viewValue: "Fantasy"},
-    {genreId: 5, viewValue: "Horror"},
-    {genreId: 6, viewValue: "Mystery"},
-    {genreId: 7, viewValue: "Romance"},
-    {genreId: 8, viewValue: "Thriller"}
+  movieGenres: MovieGenre[] = [
+    {Id: 0, GenreName: "Action"},
+    {Id: 0, GenreName: "Comedy"},
+    {Id: 0, GenreName: "Drama"},
+    {Id: 0, GenreName: "Fantasy"},
+    {Id: 0, GenreName: "Horror"},
+    {Id: 0, GenreName: "Mystery"},
+    {Id: 0, GenreName: "Romance"},
+    {Id: 0, GenreName: "Thriller"}
   ];
 
-
+//TODO: Replace this with the actual MovieGenre class, like above, with or without "Id"
   genreViewValue: GenreValue[] = [
-    {value: "Action"},
-    {value: "Comedy"},
-    {value: "Drama"},
-    {value: "Fantasy"},
-    {value: "Horror"},
-    {value: "Mystery"},
-    {value: "Romance"},
-    {value: "Thriller"}
+    {GenreName: "Action"},
+    {GenreName: "Comedy"},
+    {GenreName: "Drama"},
+    {GenreName: "Fantasy"},
+    {GenreName: "Horror"},
+    {GenreName: "Mystery"},
+    {GenreName: "Romance"},
+    {GenreName: "Thriller"}
   ];
 
   ngOnInit(): void {
@@ -53,6 +53,8 @@ export class InsertMovieComponent implements OnInit {
 
   PostMovieToDB() {
     console.log(this.newMovie);
-    this.movieService.InsertMovie(this.newMovie).subscribe();
+    this.movieService.InsertMovie(this.newMovie).subscribe((x) => {
+      console.log("PostMovie msg: " + x);
+    });
   }
 }

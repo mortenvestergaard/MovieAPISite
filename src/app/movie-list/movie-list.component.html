@@ -2,9 +2,10 @@
   <button (click)="GetMoviesFromService()">
     <span class="text">Search movies</span>
   </button>
+  <mat-progress-spinner class="spinner" [mode]="'indeterminate'" *ngIf="spinnerLoading | async"></mat-progress-spinner>
 </div>
 <div>
-  <table>
+  <!-- <table>
     <tr>
       <th>ID</th>
       <th>Poster</th>
@@ -23,15 +24,31 @@
       <td>{{movie.releaseDate}}</td>
       <td>{{movie.runtime}}</td>
     </tr>
-  </table>
-<mat-card>
+  </table> -->
+  <br>
+
+<div *ngFor="let movie of movies">
+<mat-card class="card">
   <mat-card-title-group>
-    <mat-card-title></mat-card-title>
-    <!-- <img mat-card-md-image src="https://www.imdb.com/title/tt0499549/mediaviewer/rm2864126209/?ref_=tt_ov_i"> -->
+    <mat-card-title>{{movie.title}}</mat-card-title>
+    <mat-card-subtitle><!-- TODO: Movie rating? --></mat-card-subtitle>
+    <img mat-card-xl-image src={{movie.poster}}>
   </mat-card-title-group>
-  <div *ngFor="let movie of movies">
-    <mat-card-content >{{movie.id}}</mat-card-content>
-    <mat-card-content></mat-card-content>
-  </div>
+  <mat-card-content>
+    {{movie.description}}
+  </mat-card-content>
+  <mat-card-content>
+    <div *ngFor="let genre of movie.genres">
+      <p>{{genre.GenreName}}</p>
+    </div>
+    <b>Genres: </b>
+  </mat-card-content>
+  <mat-card-content>
+    <b>Runtime: </b>{{movie.runtime}} minutes
+  </mat-card-content>
+  <mat-card-footer>
+  </mat-card-footer>
 </mat-card>
+<br>
+</div>
 </div>
